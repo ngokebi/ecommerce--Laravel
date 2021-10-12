@@ -16,14 +16,14 @@ class AdminProfileController extends Controller
     {
         $admin_data = Admin::find(1);
 
-        return view('admin.pages.profile_view', compact('admin_data'));
+        return view('admin.pages.profile.profile_view', compact('admin_data'));
     }
 
     public function AdminProfileEdit()
     {
         $edit_data = Admin::find(1);
 
-        return view('admin.pages.profile_edit', compact('edit_data'));
+        return view('admin.pages.profile.profile_edit', compact('edit_data'));
     }
 
     public function AdminProfileStore(Request $request)
@@ -70,7 +70,7 @@ class AdminProfileController extends Controller
     {
         $admin_password = Admin::find(1);
 
-        return view('admin.pages.change_password', compact('admin_password'));
+        return view('admin.pages.profile.change_password', compact('admin_password'));
     }
 
     public function UpdatePassword(Request $request)

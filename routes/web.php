@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -65,3 +66,12 @@ Route::post('/user/profile/update', [IndexController::class, 'UpdateProfile'])->
 Route::post('/user/profile', [IndexController::class, 'UpdatePassword'])->name('user.password');
 
 Route::post('/user/profile/picture', [IndexController::class, 'UpdatePicture'])->name('user.picture');
+
+
+//  All Brands Route
+
+Route::prefix('brand')->group(function(){
+
+    Route::get('/all', [BrandController::class, 'Brands'])->name('all.brand');
+    Route::get('/add', [BrandController::class, 'AddBrands'])->name('add.brand');
+});

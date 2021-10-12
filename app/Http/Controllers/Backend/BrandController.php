@@ -12,6 +12,14 @@ class BrandController extends Controller
     {
         $brands = Brand::latest()->get();
 
-        return view('admin.pages.brands', compact('brands'));
+        return view('admin.pages.brand.brands', compact('brands'));
+
+    }
+
+    public function AddBrands()
+    {
+
+        return view('admin.pages.brand.add');
+
     }
 }
