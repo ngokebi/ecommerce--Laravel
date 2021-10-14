@@ -1,4 +1,7 @@
-  <!-- Left side column. contains the logo and sidebar -->
+@php
+    $prefix = Request::route()->getPrefix();
+    $route = Route::current()->getName();
+@endphp
   <aside class="main-sidebar">
     <!-- sidebar-->
     <section class="sidebar">
@@ -18,14 +21,14 @@
       <!-- sidebar menu-->
       <ul class="sidebar-menu" data-widget="tree">
 
-		<li>
+		<li class="{{($route == 'admin.dashboard') ? 'active': ''}}">
           <a href="{{route('admin.dashboard')}}">
             <i data-feather="pie-chart"></i>
 			<span>Dashboard</span>
           </a>
         </li>
 
-        <li class="treeview">
+        <li class="treeview {{($prefix == '/brand') ? 'active': ''}}">
           <a href="#">
             <i data-feather="message-circle"></i>
             <span>Brands</span>
@@ -33,9 +36,9 @@
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="{{route('all.brand')}}"><i class="ti-more"></i>All Brands</a></li>
-            <li><a href="{{route('add.brand')}}"><i class="ti-more"></i>New Brand</a></li>
+          <ul class="treeview-menu ">
+            <li class="{{($route == 'all.brand') ? 'active': ''}}"><a href="{{route('all.brand')}}"><i class="ti-more"></i>All Brands</a></li>
+            <li class="{{($route == 'add.brand') ? 'active': ''}}"><a href="{{route('add.brand')}}"><i class="ti-more"></i>New Brand</a></li>
           </ul>
         </li>
 
@@ -107,10 +110,10 @@
 
 	<div class="sidebar-footer">
 		<!-- item-->
-		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
+		<a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
 		<!-- item-->
-		<a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
+		<a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
 		<!-- item-->
-		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
+		<a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
 	</div>
   </aside>

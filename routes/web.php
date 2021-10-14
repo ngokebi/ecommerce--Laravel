@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Models\Brand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -26,7 +27,8 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     $id = Auth::user()->id;
     $user = User::find($id);
-    return view('dashboard', compact('user'));
+    $brands = DB::table('brands')->get();
+    return view('dashboard', compact('user', 'brands'));
 })->name('dashboard');
 
 
@@ -74,4 +76,8 @@ Route::prefix('brand')->group(function(){
 
     Route::get('/all', [BrandController::class, 'Brands'])->name('all.brand');
     Route::get('/add', [BrandController::class, 'AddBrands'])->name('add.brand');
+    Route::post('/store', [BrandController::class, 'StoreBrands'])->name('store.brand');
+    Route::get('/edit/{id}', [BrandController::class, 'EditBrands'])->name('edit.brand');
+    Route::get('/delete/{id}', [BrandController::class, 'DeleteBrands'])->name('delete.brand');
+    Route::post('/update', [BrandController::class, 'UpdateBrands'])->name('update.brand');
 });

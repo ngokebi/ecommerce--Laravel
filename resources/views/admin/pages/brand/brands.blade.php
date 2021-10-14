@@ -21,59 +21,68 @@
 
         <section class="content">
             <div class="row">
-
-                <div class="col-12">
-
-                    <div class="box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Brands</h3>
+                @if (session('success'))
+                    <div class="col-12">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ session('success') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="table-responsive">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Brand Name</th>
-                                            <th>Image</th>
-                                            <th>Created at</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php($i = 1)
-                                        @foreach ($brands as $item)
-                                            <tr>
-                                                <td>{{ $i++ }}</td>
-                                                <td>{{ $item->brand_name_en }}</td>
-                                                <td><img src="{{ asset($item->brand_image) }}" alt=""></td>
-                                                <td>
-                                                    @if ($item->created_at == null)
-                                                        <span class="text-danger"> No Date Set</span>
-                                                    @else
-                                                        {{ $item->created_at }}
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    <a href="{{ url('brand/edit/' . $item->id) }}"
-                                                        class="btn btn-primary">Edit</a>
+                @endif
 
-                                                    <a href="{{ url('brand/delete/' . $item->id) }}"
-                                                        onclick="return confirm('Are you sure you want to delete')"
-                                                        class="btn btn-danger">Delete</a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
+
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Brands</h3>
+                        <a href="{{ route('add.brand') }}" class="btn btn-rounded btn-outline btn-secondary"
+                            style="float: right">New Brands</a>
                     </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Brand Name</th>
+                                        <th>Image</th>
+                                        <th>Created at</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php($i = 1)
+                                    @foreach ($brands as $item)
+                                        <tr>
+                                            <td>{{ $i++ }}</td>
+                                            <td>{{ $item->brand_name }}</td>
+                                            <td><img src="{{ asset($item->brand_image) }}" alt="" width="50%" height="30%"></td>
+                                            <td>
+                                                @if ($item->created_at == null)
+                                                    <span class="text-danger"> No Date Set</span>
+                                                @else
+                                                    {{ $item->created_at }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('edit.brand', $item->id) }}"
+                                                    class="btn btn-rounded btn-outline btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
+
+                                                <a href="{{ route('delete.brand', $item->id) }}" title="Delete" onclick="return confirm('Are you sure you want to delete')"
+                                                    class="btn btn-rounded btn-outline btn-danger" id="deleted"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
                 </div>
             </div>
-        </section>
+    </div>
+    </section>
     </div>
 
 @endsection

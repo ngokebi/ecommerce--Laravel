@@ -30,32 +30,34 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                                    <form action="" method="POST">
-                                        @csrf
-                                        <div class="mb-3">
-                                            <label for="brand_name" class="form-label">Brand Name:</label>
-                                            <input type="text" name="brand_name" class="form-control" id="brand_name">
-                                            @error('brand_name')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="brand_image" class="form-label">Brand Image:</label>
-                                            <input type="file" name="brand_image" class="form-control" id="brand_image">
-                                            @error('brand_image')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <br>
-                                        <a href="{{ route('admin.profile') }}" style="float: right;"
-                                        class="btn btn-rounded btn-outline btn-dark mb-5">Back</a>
-                                        <button type="submit" class="btn btn-rounded btn-outline btn-dark"
-                                            style="float: right; margin-right:2%;">Add Brand</button>
-                                    </form>
-                        <!-- /.box-body -->
+                            <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="brand_name" class="form-label">Brand Name:</label>
+                                    <input type="text" name="brand_name" class="form-control" id="brand_name">
+                                    @error('brand_name')
+                                        <span class="text-danger"> {{ $message }} </span>
+                                    @enderror
+
+                                </div>
+                                <div class="mb-3">
+                                    <label for="brand_image" class="form-label">Brand Image:</label>
+                                    <input type="file" name="brand_image" class="form-control" id="brand_image">
+                                    @error('brand_image')
+                                        <span class="text-danger"> {{ $message }} </span>
+                                    @enderror
+                                </div>
+                                <br>
+                                <a href="{{ route('all.brand') }}" style="float: right;"
+                                class="btn btn-rounded btn-outline btn-dark mb-5">Back</a>
+                                <button type="submit" class="btn btn-rounded btn-outline btn-dark" style="float: right; margin-right:2%;">Add
+                                    Brand</button>
+
+                            </form>
+                            <!-- /.box-body -->
+                        </div>
                     </div>
                 </div>
-            </div>
         </section>
     </div>
 
