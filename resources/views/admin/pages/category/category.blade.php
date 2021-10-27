@@ -11,7 +11,7 @@
                         <nav>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href=""><i class="mdi mdi-home-outline"></i></a></li>
-                                <li class="breadcrumb-item" aria-current="page">All Brands</li>
+                                <li class="breadcrumb-item" aria-current="page">All Categories</li>
                             </ol>
                         </nav>
                     </div>
@@ -34,9 +34,9 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Brands</h3>
-                        <a href="{{ route('add.brand') }}" class="btn btn-rounded btn-outline btn-secondary"
-                            style="float: right">New Brands</a>
+                        <h3 class="box-title">Category</h3>
+                        <a href="{{ route('add.category') }}" class="btn btn-rounded btn-outline btn-secondary"
+                            style="float: right">New Category</a>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -45,19 +45,19 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Brand Name</th>
-                                        <th>Image</th>
+                                        <th>Category Name</th>
+                                        <th>Category Icon</th>
                                         <th>Created at</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php($i = 1)
-                                    @foreach ($brands as $item)
+                                    @foreach ($category as $item)
                                         <tr>
                                             <td>{{ $i++ }}</td>
-                                            <td>{{ $item->brand_name }}</td>
-                                            <td><img src="{{ asset($item->brand_image) }}" alt="" width="50%" height="30%"></td>
+                                            <td>{{ $item->category_name }}</td>
+                                            <td><span><i class="{{$item->category_icon}}"></i></span></td>
                                             <td>
                                                 @if ($item->created_at == null)
                                                     <span class="text-danger"> No Date Set</span>
@@ -66,10 +66,10 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('edit.brand', $item->id) }}"
+                                                <a href="{{ route('edit.category', $item->id) }}"
                                                     class="btn btn-rounded btn-outline btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
 
-                                                <a href="{{ route('delete.brand', $item->id) }}" title="Delete" {{--onclick="return confirm('Are you sure you want to delete')" --}}
+                                                <a href="{{ route('delete.category', $item->id) }}" title="Delete" {{--onclick="return confirm('Are you sure you want to delete')" --}}
                                                     class="btn btn-rounded btn-outline btn-danger" id="deleted"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>

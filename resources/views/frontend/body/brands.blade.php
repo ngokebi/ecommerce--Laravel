@@ -6,6 +6,7 @@
                      @foreach ($brands as $brand)
 
                          <div class="item"> <a href="#" class="image"> <img
+
                                      data-echo="{{ asset($brand->brand_image) }}" src="" alt=""> </a> </div>
 
                      @endforeach

@@ -62,10 +62,12 @@
     <!-- Sunny Admin App -->
     <script src="{{ asset('backend/js/template.js') }}"></script>
     <script src="{{ asset('backend/js/pages/dashboard.js') }}"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <script type="text/javascript">
         $(function() {
-            $(document).on('click', '#deleted', function (e) {
+            $(document).on('click', '#deleted', function(e) {
                 e.preventDefault();
                 var link = $(this).attr("href");
 
@@ -79,6 +81,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        window.location.href = link
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
@@ -88,7 +91,7 @@
                 })
             });
         });
-    </script> --}}
+    </script>
 
 </body>
 

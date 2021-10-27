@@ -1,3 +1,6 @@
+@php
+    $brands = DB::table('brands')->get();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,6 +45,8 @@
     @yield('content')
 
     <!-- /#top-banner-and-menu -->
+
+    @include('frontend.body.brands')
 
     <!-- ============================================================= FOOTER ============================================================= -->
 

@@ -151,7 +151,7 @@
 
             </div>
         </div>
-        @include('frontend.body.brands')
+        
     </div>
     <script type="text/javascript">
         $(document).ready(function(e) {

@@ -112,9 +112,6 @@
                 <!-- create a new account -->
             </div><!-- /.row -->
         </div><!-- /.sigin-in-->
-        <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-        @include('frontend.body.brands')
-        <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
     </div><!-- /.container -->
     </div><!-- /.body-content -->
     <!-- /#top-banner-and-menu -->
