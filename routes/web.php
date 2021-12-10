@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\ProductsController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Models\Brand;
 use Illuminate\Support\Facades\Route;
@@ -106,5 +107,28 @@ Route::prefix('subcategory')->group(function(){
     Route::get('/edit/{id}', [SubCategoryController::class, 'EditSubCategory'])->name('edit.subcategory');
     Route::get('/delete/{id}', [SubCategoryController::class, 'DeleteSubCategory'])->name('delete.subcategory');
     Route::post('/update', [SubCategoryController::class, 'UpdateSubCategory'])->name('update.subcategory');
+
+});
+
+Route::prefix('sub_subcategory')->group(function(){
+
+    Route::get('/all', [SubCategoryController::class, 'Sub_SubCategory'])->name('all.sub_subcategory');
+    Route::get('/add', [SubCategoryController::class, 'AddSub_SubCategory'])->name('add.sub_subcategory');
+    Route::post('/store', [SubCategoryController::class, 'StoreSub_SubCategory'])->name('store.sub_subcategory');
+    Route::get('/edit/{id}', [SubCategoryController::class, 'EditSub_SubCategory'])->name('edit.sub_subcategory');
+    Route::get('/delete/{id}', [SubCategoryController::class, 'DeleteSub_SubCategory'])->name('delete.sub_subcategory');
+    Route::post('/update', [SubCategoryController::class, 'UpdateSub_SubCategory'])->name('update.sub_subcategory');
+    Route::get('/subcategory/ajax/{category_id}', [SubCategoryController::class, 'Get_SubCategory']);
+
+});
+
+Route::prefix('products')->group(function(){
+
+    Route::get('/all', [ProductsController::class, 'Products'])->name('all.products');
+    Route::get('/add', [ProductsController::class, 'AddProducts'])->name('add.products');
+    Route::post('/store', [ProductsController::class, 'StoreProducts'])->name('store.products');
+    Route::get('/edit/{id}', [ProductsController::class, 'EditProducts'])->name('edit.products');
+    Route::get('/delete/{id}', [ProductsController::class, 'DeleteProducts'])->name('delete.products');
+    Route::post('/update', [ProductsController::class, 'UpdateProducts'])->name('update.products');
 
 });
