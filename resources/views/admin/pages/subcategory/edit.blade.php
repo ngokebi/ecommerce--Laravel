@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="update_subcategoryname" class="form-label">Category Name:</label>
+                                    <label for="update_subcategoryname" class="form-label">SubCategory Name:</label>
                                     <input type="text" name="subcategory_name" class="form-control"
                                         id="update_subcategoryname" value="{{ $edit_subcategory->subcategory_name }}">
                                     @error('subcategory_name')

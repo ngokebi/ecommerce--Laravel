@@ -80,7 +80,7 @@ class SubCategoryController extends Controller
 
         SubCategory::findOrFail($subcategory_id)->update([
             'category_id' => $request->category_id,
-            'category_name' => $request->subcategory_name,
+            'subcategory_name' => $request->subcategory_name,
             'created_at' => Carbon::now()
         ]);
 
@@ -94,11 +94,6 @@ class SubCategoryController extends Controller
 
         return Redirect()->back()->with('success', 'SubCategory Deleted Successfully');
     }
-
-
-
-
-
 
 
 
@@ -186,7 +181,7 @@ class SubCategoryController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return Redirect()->route('all.subsubcategory')->with('success', 'SubSubCategory Updated Successfully');
+        return Redirect()->route('all.sub_subcategory')->with('success', 'SubSubCategory Updated Successfully');
     }
 
     public function DeleteSub_SubCategory($id)
@@ -195,5 +190,12 @@ class SubCategoryController extends Controller
         SubSubCategory::findOrFail($id)->delete();
 
         return Redirect()->back()->with('success', 'SubSubCategory Deleted Successfully');
+    }
+
+    public function Get_SubSubCategory($subcategory_id)
+    {
+        $subsubcat = SubSubCategory::where('subcategory_id', $subcategory_id)->orderBy('subsubcategory_name', 'ASC')->get();
+
+        return json_encode($subsubcat);
     }
 }

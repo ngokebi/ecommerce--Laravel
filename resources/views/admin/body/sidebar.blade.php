@@ -53,10 +53,10 @@ $route = Route::current()->getName();
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ $route == 'all.category' ? 'active' : '' }}"><a href="{{ route('all.category') }}"><i
-                                class="ti-more"></i>All Category</a></li>
-                    <li class="{{ $route == 'add.category' ? 'active' : '' }}"><a href="{{ route('add.category') }}"><i
-                                class="ti-more"></i>New Category</a></li>
+                    <li class="{{ $route == 'all.category' ? 'active' : '' }}"><a
+                            href="{{ route('all.category') }}"><i class="ti-more"></i>All Category</a></li>
+                    <li class="{{ $route == 'add.category' ? 'active' : '' }}"><a
+                            href="{{ route('add.category') }}"><i class="ti-more"></i>New Category</a></li>
                 </ul>
             </li>
 
@@ -69,10 +69,12 @@ $route = Route::current()->getName();
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ $route == 'all.subcategory' ? 'active' : '' }}"><a href="{{ route('all.subcategory') }}"><i
-                                class="ti-more"></i>All SubCategory</a></li>
-                    <li class="{{ $route == 'add.subcategory' ? 'active' : '' }}"><a href="{{ route('add.subcategory') }}"><i
-                                class="ti-more"></i>New SubCategory</a></li>
+                    <li class="{{ $route == 'all.subcategory' ? 'active' : '' }}"><a
+                            href="{{ route('all.subcategory') }}"><i class="ti-more"></i>All SubCategory</a>
+                    </li>
+                    <li class="{{ $route == 'add.subcategory' ? 'active' : '' }}"><a
+                            href="{{ route('add.subcategory') }}"><i class="ti-more"></i>New SubCategory</a>
+                    </li>
                 </ul>
             </li>
 
@@ -85,26 +87,29 @@ $route = Route::current()->getName();
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ $route == 'all.sub_subcategory' ? 'active' : '' }}"><a href="{{ route('all.sub_subcategory') }}"><i
-                                class="ti-more"></i>All Sub_Subcategory</a></li>
-                    <li class="{{ $route == 'add.sub_subcategory' ? 'active' : '' }}"><a href="{{ route('add.sub_subcategory') }}"><i
-                                class="ti-more"></i>New Sub_Subcategory</a></li>
+                    <li class="{{ $route == 'all.sub_subcategory' ? 'active' : '' }}"><a
+                            href="{{ route('all.sub_subcategory') }}"><i class="ti-more"></i>All
+                            Sub_Subcategory</a></li>
+                    <li class="{{ $route == 'add.sub_subcategory' ? 'active' : '' }}"><a
+                            href="{{ route('add.sub_subcategory') }}"><i class="ti-more"></i>New
+                            Sub_Subcategory</a></li>
                 </ul>
             </li>
 
             <li class="treeview {{ $prefix == '/products' ? 'active' : '' }}">
                 <a href="#">
-                    <i data-feather="grid"></i>
+                    <i data-feather="file"></i>
                     <span>Products</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ $route == 'add.products' ? 'active' : '' }}"><a href="{{ route('add.products') }}"><i
-                                class="ti-more"></i>Add Products</a></li>
-                    <li class="{{ $route == 'manage.products' ? 'active' : '' }}"><a href="{{ route('manage.products') }}"><i
-                                class="ti-more"></i>Manage Products</a></li>
+                    <li class="{{ $route == 'manage.products' ? 'active' : '' }}"><a
+                            href="{{ route('manage.products') }}"><i class="ti-more"></i>Manage Products</a>
+                    </li>
+                    <li class="{{ $route == 'add.products' ? 'active' : '' }}"><a
+                            href="{{ route('add.products') }}"><i class="ti-more"></i>Add Products</a></li>
                 </ul>
             </li>
 

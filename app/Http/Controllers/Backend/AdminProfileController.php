@@ -14,14 +14,14 @@ class AdminProfileController extends Controller
 {
     public function AdminProfile()
     {
-        $admin_data = Admin::find(1);
+        $admin_data = Admin::find(3);
 
         return view('admin.pages.profile.profile_view', compact('admin_data'));
     }
 
     public function AdminProfileEdit()
     {
-        $edit_data = Admin::find(1);
+        $edit_data = Admin::find(3);
 
         return view('admin.pages.profile.profile_edit', compact('edit_data'));
     }
@@ -38,7 +38,7 @@ class AdminProfileController extends Controller
 
         );
 
-        $admin = Admin::find(1);
+        $admin = Admin::find(3);
         if ($admin) {
 
             $admin->name = $request->name;
@@ -68,7 +68,7 @@ class AdminProfileController extends Controller
 
     public function AdminPassword()
     {
-        $admin_password = Admin::find(1);
+        $admin_password = Admin::find(3);
 
         return view('admin.pages.profile.change_password', compact('admin_password'));
     }
@@ -84,11 +84,11 @@ class AdminProfileController extends Controller
 
         );
 
-        $hashedPassword = Admin::find(1)->password;
+        $hashedPassword = Admin::find(3)->password;
 
         if (Hash::check($request->current_password, $hashedPassword)) {
 
-            $admin = Admin::find(1);
+            $admin = Admin::find(3);
 
             $admin->password = Hash::make($request->password);
 

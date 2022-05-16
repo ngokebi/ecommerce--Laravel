@@ -11,6 +11,7 @@ use App\Models\Brand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,12 +120,13 @@ Route::prefix('sub_subcategory')->group(function(){
     Route::get('/delete/{id}', [SubCategoryController::class, 'DeleteSub_SubCategory'])->name('delete.sub_subcategory');
     Route::post('/update', [SubCategoryController::class, 'UpdateSub_SubCategory'])->name('update.sub_subcategory');
     Route::get('/subcategory/ajax/{category_id}', [SubCategoryController::class, 'Get_SubCategory']);
+    Route::get('/subsubcategory/ajax/{subcategory_id}', [SubCategoryController::class, 'Get_SubSubCategory']);
 
 });
 
 Route::prefix('products')->group(function(){
 
-    Route::get('/all', [ProductsController::class, 'Products'])->name('all.products');
+    Route::get('/all', [ProductsController::class, 'Products'])->name('manage.products');
     Route::get('/add', [ProductsController::class, 'AddProducts'])->name('add.products');
     Route::post('/store', [ProductsController::class, 'StoreProducts'])->name('store.products');
     Route::get('/edit/{id}', [ProductsController::class, 'EditProducts'])->name('edit.products');
